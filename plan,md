@@ -5,3 +5,5 @@ created start script "start": "node index.js"
 added  "type": "module", to package.json
 installed nodemon
 installed dot env
+set env up and database creds
+install jason web tokens
