@@ -1,0 +1,7 @@
+npm init
+npm i express
+created gitignore added node modules
+created start script "start": "node index.js"
+added  "type": "module", to package.json
+installed nodemon
+installed dot env

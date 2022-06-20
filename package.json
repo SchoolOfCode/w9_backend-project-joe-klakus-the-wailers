@@ -1,0 +1,27 @@
+{
+  "name": "w9_backend-project-joe-klakus-the-wailers",
+  "version": "1.0.0",
+  "description": "For your project, you’ll be using what you’ve learned on the course so far to try and improve the lives of your users. In this case, the users will be close to home: bootcampers!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node -r dotenv/config index.js",
+    "dev": "nodemon -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://JojokCreator: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@github.com/SchoolOfCode/w9_backend-project-joe-klakus-the-wailers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/w9_backend-project-joe-klakus-the-wailers/issues"
+  },
+  "homepage": "https://github.com/SchoolOfCode/w9_backend-project-joe-klakus-the-wailers#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
