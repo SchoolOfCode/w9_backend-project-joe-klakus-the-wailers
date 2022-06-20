@@ -23,7 +23,6 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
-    "jsonwebtoken-esm": "^1.0.3",
     "nodemon": "^2.0.16"
   }
 }

@@ -29,4 +29,25 @@ app.post('/login', (req, res)=>{
     }  
 });
 
+const verify = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+        const token = authHeader.split(" ")[1]
+
+    jwt.verify(token, "thisisasecret",(err, user)=>{
+        if(err){
+            return res.status(403).json("Token is not valid")
+        }
+        req.user = user
+        next();
+    });
+    } else {
+      res.status(401).json("Not allowed")  
+    }
+};
+
+app.get("/main", verify, (req,res)=> {
+    
+})
+
 app.listen(PORT, ()=> console.log(`backend server is running on ${PORT}`))
