@@ -39,6 +39,7 @@ const verify = (req, res, next) => {
             return res.status(403).json("Token is not valid")
         }
         req.user = user
+        res.status(401).json("Success")  
         next();
     });
     } else {
@@ -47,7 +48,7 @@ const verify = (req, res, next) => {
 };
 
 app.get("/main", verify, (req,res)=> {
-    
+
 })
 
 app.listen(PORT, ()=> console.log(`backend server is running on ${PORT}`))
