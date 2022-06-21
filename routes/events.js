@@ -1,5 +1,5 @@
 import express from "express";
-import { getEvents } from "../models/events.js";
+import { getEvents, createEvent, deleteEvent } from "../models/events.js";
 
 const eventsRouter = express.Router();
 // GET ALL EVENTS (GET)
@@ -8,28 +8,28 @@ eventsRouter.get("/events", async(req, res)=>{
     res.json({Success : true , Payload: result})
 })
 
-//GET EVENT BY ID
-eventsRouter.get("/events/:id", async(req, res)=>{
-    const id = Number(req.params.id);
-    const result = await getEventById(id); //models events 
-    res.json({Success : true , Payload: result})
-})
+// //GET EVENT BY ID
+// eventsRouter.get("/events/:id", async(req, res)=>{
+//     const id = Number(req.params.id);
+//     const result = await getEventById(id); //models events 
+//     res.json({Success : true , Payload: result})
+// })
 
 
-//CREATE A NEW EVENT (POST)
-eventsRouter.post("/events", async(req, res)=>{
-    const newEvent = req.body 
-    const result = await createEvent(newEvent);
-    res.json({Success : true , Payload: result})
-})
+// //CREATE A NEW EVENT (POST)
+// eventsRouter.post("/events", async(req, res)=>{
+//     const newEvent = req.body 
+//     const result = await createEvent(newEvent);
+//     res.json({Success : true , Payload: result})
+// })
 
-//UPDATE EVENT DETAILS (PATCH) 
-eventsRouter.patch("/events/:id", async(req, res)=>{
-    const id = Number(req.params.id);
-    const updatedEvent = req.body 
-    const result = await updateEvent(updatedEvent, id);
-    res.json({Success : true , Payload: result})
-})
+// //UPDATE EVENT DETAILS (PATCH) 
+// eventsRouter.patch("/events/:id", async(req, res)=>{
+//     const id = Number(req.params.id);
+//     const updatedEvent = req.body 
+//     const result = await updateEvent(updatedEvent, id);
+//     res.json({Success : true , Payload: result})
+// })
 
 //DELETE AN EVENT (DELETE)
 
