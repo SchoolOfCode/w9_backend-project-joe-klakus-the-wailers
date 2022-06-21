@@ -6,7 +6,7 @@ const sqlString = `CREATE TABLE IF NOT EXISTS users(
     last_name VARCHAR, 
     email VARCHAR, 
     password VARCHAR,
-    region VARCHAR,
+    region VARCHAR
     );`;
 
 async function createUsersTable(){

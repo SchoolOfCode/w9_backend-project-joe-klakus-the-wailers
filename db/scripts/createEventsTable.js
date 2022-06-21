@@ -1,6 +1,6 @@
 import { query } from "../index.js"
 
-const sqlString = `CREATE TABLE IF NOT EXISTS users(
+const sqlString = `CREATE TABLE IF NOT EXISTS events(
     events_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
     name_of_event VARCHAR, 
     event_host INT NOT NULL UNIQUE REFERENCES users (user_id), 
@@ -9,8 +9,8 @@ const sqlString = `CREATE TABLE IF NOT EXISTS users(
     description VARCHAR,
     cost INT,
     address VARCHAR,
-    lat INT,
-    long INT,
+    lat DECIMAL,
+    long DECIMAL,
     userAttending INT NOT NULL UNIQUE REFERENCES users (user_id)
     );`;
 

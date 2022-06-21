@@ -1,6 +1,6 @@
 import { query } from "../index.js"
 
-const sqlString = `DROP TABLE IF NOT EXISTS events;`;
+const sqlString = `DROP TABLE IF EXISTS events;`;
 
 async function dropEventsTable(){
     const res = await query(sqlString)
