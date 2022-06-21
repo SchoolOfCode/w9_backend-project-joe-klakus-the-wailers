@@ -27,9 +27,30 @@ Create Routes - Users/Events
     - GET by id✅
 
 Create scripts for database table creation
-- install/use pg and query
-- 
--
+- install/use pg and query✅
+- Create the user table✅
+- Create the event table✅
+- Populate the users table✅
+- populate the events table✅
+- drop the users table✅
+- drop the events table✅
     
 Create Models - functions
+- Creates a new event (POST)✅
+- UPDATE AN EVENT BY ID (PATCH)✅
+- Search by event ID (GET)✅
+- Delete an event by id (DELETE)✅
+- Selects all users from the users table (GET)✅
+- Creates a new user in the users table(POST)✅
+- UPDATE A USER BY ID(PATCH)✅
+- Delete user from the users table(DELETE)✅
+
+Added bcrypt to hash the passwords✅
+
+Take the verify function out from the app.js and import where needed
+
+
+
+
+
 

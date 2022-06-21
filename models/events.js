@@ -1,11 +1,11 @@
 import { query } from '../db/index.js';
 
-//Gets all the events from the database
+//Gets all the events from the database (GET)
 export const getEvents = async() =>{
     const data = await query(`SELECT * FROM events;`);
     return data.rows;
   }
-  //Creates a new event
+  //Creates a new event (POST)
   export const createEvent = async(newEvent) => {
     const { name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending } = newEvent;
     const data = await query(
@@ -15,7 +15,7 @@ export const getEvents = async() =>{
     return data.rows;
   }
 
-  // UPDATE AN EVENT BY ID
+  // UPDATE AN EVENT BY ID (PATCH)
 export const updateEvent = async(updatedEvent, id) => {
     const { name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending } = updatedEvent
     const eventUpdate = await query(`SELECT * FROM events WHERE events_id = ${id}`)
@@ -55,15 +55,22 @@ export const updateEvent = async(updatedEvent, id) => {
         await query (`UPDATE events SET long = $1 WHERE events_id = ${id};`,
         [long] )
     }
-    if ( userAttending) {
-        await query (`UPDATE events SET userAttending = $1 WHERE events_id = ${id};`,
-        [userAttending] )
-    }
+    // if ( userAttending) {
+    //     await query (`UPDATE events SET userAttending = $1 WHERE events_id = ${id};`,
+    //     [userAttending] )
+    // }
     if (eventUpdate) {
         return eventUpdate.rows
     } 
 }
+
+//Search by event ID (GET)
+export const getEventById = async(id) =>{
+    const data = await query(`SELECT * FROM events WHERE events_id = $1;`,[id]);
+    return data.rows;
+  }
   
+//Delete an event by id (DELETE)
   export async function deleteEvent(id) {
     const data = await query(
       `DELETE FROM events WHERE events_id = $1 RETURNING *`,

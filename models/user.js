@@ -1,4 +1,5 @@
 import { query } from "../db/index.js";
+import bcrypt from "bcrypt";
 
 //Regular function format
 // export async function getUsers(){
@@ -16,17 +17,22 @@ return data.rows;
 export const createUser = async(newUser) =>{
     //destructured
     const {first_name , last_name, email , password , region } = newUser;
+    const emailCheck = await query(`SELECT * FROM users WHERE email = $1`,[email])
+    if (emailCheck.rows.length === 0){
+    const hash = await bcrypt.hash(password,10);
     const data  = await query(`INSERT INTO users (first_name, last_name , email , password , region ) VALUES ($1, $2, $3, $4, $5) 
-    RETURNING *;`,[first_name, last_name, email, password, region]);
+    RETURNING *;`,[first_name, last_name, email, hash, region]);
     //console.log(data.rows);
     return data.rows;
-
+    }else{
+        console.log("Email Exists")//To Do!! 
     }
-
+}
 //Update user details (PATCH)
 // UPDATE A USER BY ID
 export const  updateUser = async (updatedUser, id) => {
     const { first_name, last_name, email, password, region } = updatedUser;
+    const hash = await bcrypt.hash(password,10);
     const userUpdate = await query(`SELECT * FROM users WHERE user_id = ${id}`)
     if (first_name) {
         await query (`UPDATE users SET first_name = $1 WHERE user_id = ${id};`,
@@ -42,7 +48,7 @@ export const  updateUser = async (updatedUser, id) => {
     }
     if (password) {
         await query (`UPDATE users SET password = $1 WHERE user_id = ${id};`,
-        [password] )
+        [hash] )
     }
     if (region) {
         await query (`UPDATE users SET region = $1 WHERE user_id = ${id};`,
