@@ -27,6 +27,9 @@ Create Routes - Users/Events
     - GET by id✅
 
 Create scripts for database table creation
+- install/use pg and query
+- 
+-
     
 Create Models - functions
 
