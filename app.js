@@ -1,6 +1,7 @@
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import usersRouter from './routes/user.js';
+import eventsRouter from './routes/events.js';
 const app = express();
 app.use(express.json())
 const PORT = process.env.port || 5000;
@@ -13,7 +14,8 @@ const users = [
 }
 ];
 
-app.use("/", usersRouter)
+app.use("/", usersRouter);
+app.use("/", eventsRouter);
 
 app.post('/login', (req, res)=>{
     const {username, password} = req.body;
