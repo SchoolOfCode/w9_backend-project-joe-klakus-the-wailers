@@ -16,12 +16,12 @@ return data.rows;
 //Creates a new user in the users table(POST)
 export const createUser = async(newUser) =>{
     //destructured
-    const {first_name , last_name, email , password , region } = newUser;
+    const {first_name , last_name, email , password , house_number, street_address, town, region, postcode } = newUser;
     const emailCheck = await query(`SELECT * FROM users WHERE email = $1`,[email])
     if (emailCheck.rows.length === 0){
     const hash = await bcrypt.hash(password,10);
-    const data  = await query(`INSERT INTO users (first_name, last_name , email , password , region ) VALUES ($1, $2, $3, $4, $5) 
-    RETURNING *;`,[first_name, last_name, email, hash, region]);
+    const data  = await query(`INSERT INTO users (first_name, last_name , email , password , house_number, street_address, town, region, postcode ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
+    RETURNING *;`,[first_name, last_name, email, hash, house_number, street_address, town, region, postcode]);
     //console.log(data.rows);
     return data.rows;
     }else{
@@ -31,7 +31,7 @@ export const createUser = async(newUser) =>{
 //Update user details (PATCH)
 // UPDATE A USER BY ID
 export const  updateUser = async (updatedUser, id) => {
-    const { first_name, last_name, email, password, region } = updatedUser;
+    const { first_name, last_name, email, password, house_number, street_address, town, region, postcode } = updatedUser;
     const hash = await bcrypt.hash(password,10);
     const userUpdate = await query(`SELECT * FROM users WHERE user_id = ${id}`)
     if (first_name) {
@@ -50,9 +50,25 @@ export const  updateUser = async (updatedUser, id) => {
         await query (`UPDATE users SET password = $1 WHERE user_id = ${id};`,
         [hash] )
     }
-    if (region) {
-        await query (`UPDATE users SET region = $1 WHERE user_id = ${id};`,
-         [region])
+    if ( house_number) {
+        await query (`UPDATE events SET house_number = $1 WHERE events_id = ${id};`,
+        [house_number] )
+    }
+    if ( street_address) {
+        await query (`UPDATE events SET street_address = $1 WHERE events_id = ${id};`,
+        [street_address] )
+    }
+    if ( town) {
+        await query (`UPDATE events SET town = $1 WHERE events_id = ${id};`,
+        [town] )
+    }
+    if ( region) {
+        await query (`UPDATE events SET region = $1 WHERE events_id = ${id};`,
+        [region] )
+    }
+    if ( postcode) {
+        await query (`UPDATE events SET postcode = $1 WHERE events_id = ${id};`,
+        [postcode] )
     }
     if (userUpdate) {
        return userUpdate.rows;

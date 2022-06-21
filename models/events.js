@@ -7,17 +7,17 @@ export const getEvents = async() =>{
   }
   //Creates a new event (POST)
   export const createEvent = async(newEvent) => {
-    const { name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending } = newEvent;
+    const { name_of_event, event_host, start_time, end_time, description,cost, house_number, street_address, town, region, postcode, lat, long, userAttending } = newEvent;
     const data = await query(
-        `INSERT INTO events (name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;`,
-      [name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending]
+        `INSERT INTO events (name_of_event, event_host, start_time, end_time, description,cost, house_number, street_address, town, region, postcode, lat, long, userAttending) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *;`,
+      [name_of_event, event_host, start_time, end_time, description,cost, house_number, street_address, town, region, postcode, lat, long, userAttending]
     );
     return data.rows;
   }
 
   // UPDATE AN EVENT BY ID (PATCH)
 export const updateEvent = async(updatedEvent, id) => {
-    const { name_of_event, event_host, start_time, end_time, description,cost, address, lat, long, userAttending } = updatedEvent
+    const { name_of_event, event_host, start_time, end_time, description,cost, house_number, street_address, town, region, postcode, lat, long, userAttending } = updatedEvent
     const eventUpdate = await query(`SELECT * FROM events WHERE events_id = ${id}`)
     if (name_of_event) {
         await query (`UPDATE events SET name_of_event = $1 WHERE events_id = ${id};`,
@@ -43,9 +43,25 @@ export const updateEvent = async(updatedEvent, id) => {
         await query (`UPDATE events SET cost = $1 WHERE events_id = ${id};`,
         [cost] )
     }
-    if ( address) {
-        await query (`UPDATE events SET address = $1 WHERE events_id = ${id};`,
-        [address] )
+    if ( house_number) {
+        await query (`UPDATE events SET house_number = $1 WHERE events_id = ${id};`,
+        [house_number] )
+    }
+    if ( street_address) {
+        await query (`UPDATE events SET street_address = $1 WHERE events_id = ${id};`,
+        [street_address] )
+    }
+    if ( town) {
+        await query (`UPDATE events SET town = $1 WHERE events_id = ${id};`,
+        [town] )
+    }
+    if ( region) {
+        await query (`UPDATE events SET region = $1 WHERE events_id = ${id};`,
+        [region] )
+    }
+    if ( postcode) {
+        await query (`UPDATE events SET postcode = $1 WHERE events_id = ${id};`,
+        [postcode] )
     }
     if ( lat) {
         await query (`UPDATE events SET lat = $1 WHERE events_id = ${id};`,

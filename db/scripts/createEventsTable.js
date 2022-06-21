@@ -8,7 +8,11 @@ const sqlString = `CREATE TABLE IF NOT EXISTS events(
     end_time TIMESTAMP,
     description VARCHAR,
     cost INT,
-    address VARCHAR,
+    house_number VARCHAR, 
+    street_address VARCHAR, 
+    town VARCHAR, 
+    region VARCHAR, 
+    postcode VARCHAR,
     lat DECIMAL,
     long DECIMAL,
     userAttending INT NOT NULL REFERENCES users (user_id)

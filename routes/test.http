@@ -1,0 +1,83 @@
+//Test Events
+
+GET http://localhost:5000/events/
+###
+GET http://localhost:5000/events/2
+###
+DELETE http://localhost:5000/events/2
+
+###
+POST http://localhost:5000/events/
+content-type: application/json
+
+    {
+      "name_of_event": "Brum JS",
+      "event_host": 1,
+      "start_time": "2004-10-19T09:23:54.000Z",
+      "end_time": "2004-10-19T12:23:54.000Z",
+      "description": "Meetup for Everyone",
+      "cost": 0,
+      "house_number": "custard factory",
+      "street_address": "birmingham",
+      "town": "birmingham",
+      "region": "birmingham",
+      "postcode": "birmingham",
+      "lat": "51.5073509",
+      "long": "-0.1277583",
+      "userAttending": 1
+    }
+###
+Patch http://localhost:5000/events/2
+content-type: application/json
+
+    {
+      "name_of_event": "This is 2",
+      "event_host": 1,
+      "start_time": "2004-10-19T09:23:54.000Z",
+      "end_time": "2004-10-19T12:23:54.000Z",
+      "description": "Meetup for Everyone",
+      "cost": 0,
+      "house_number": "factory",
+      "street_address": "birmingham",
+      "town": "birmingham",
+      "region": "birmingham",
+      "postcode": "birmingham",
+      "lat": "51.5073509",
+      "long": "-0.1277583",
+      "userAttending": 1
+    }
+
+//Test Users
+###
+GET http://localhost:5000/users/
+
+###
+POST http://localhost:5000/users/
+content-type: application/json
+
+    {
+      "first_name": "New Person",
+      "last_name": "Green",
+      "email": "m535g@hotmail.com",
+      "password": "password",
+      "house_number": "birmingham",
+      "street_address": "birmingham",
+      "town": "birmingham",
+      "region": "birmingham",
+      "postcode": "birmingham"
+    }
+###
+Patch http://localhost:5000/users/3
+content-type: application/json
+
+    {
+      "first_name": "Test",
+      "last_name": "Green",
+      "email": "mg@hotmail.com",
+      "password": "password",
+      "house_number": "birmingham",
+      "street_address": "test",
+      "town": "test",
+      "region": "birmingham",
+      "postcode": "birmingham"
+    }
