@@ -5,6 +5,6 @@
 // }
 
 export const getEvents = async() =>{
-    return [{userID : 1 , Name : "Joe"}, 
-    {userID : 2 , Name : "Bob"}] 
+    return [{id : 1 , Name : "Joe"}, 
+    {id : 2 , Name : "Bob"}] 
 }

@@ -13,18 +13,18 @@ create verify function✅
 
 
 
-tests for endpoints
+tests for endpoints✅
 Create Routes - Users/Events
 - USER
-    - POST create User
+    - POST create User✅
     - POST sign in
     - PATCH edit user details
 - Events
-    - POST create event
-    - DELETE event
-    - PATCH edit user details
-    - GET all events
-    - GET by id
+    - POST create event✅
+    - DELETE event✅
+    - PATCH edit user details✅
+    - GET all events✅
+    - GET by id✅
 
 Create scripts for database table creation
     
