@@ -1,5 +1,6 @@
 import express from 'express'
 import jwt from 'jsonwebtoken'
+import usersRouter from './routes/user.js';
 const app = express();
 app.use(express.json())
 const PORT = process.env.port || 5000;
@@ -11,6 +12,8 @@ const users = [
     password: "admin",
 }
 ];
+
+app.use("/", usersRouter)
 
 app.post('/login', (req, res)=>{
     const {username, password} = req.body;
@@ -52,3 +55,5 @@ app.get("/main", verify, (req,res)=> {
 })
 
 app.listen(PORT, ()=> console.log(`backend server is running on ${PORT}`))
+
+export default app;
