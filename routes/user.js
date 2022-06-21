@@ -1,5 +1,5 @@
 import express from "express";
-import { getUsers, createUser, deleteUser } from "../models/user.js";
+import { getUsers, createUser, deleteUser, updateUser } from "../models/user.js";
 
 const usersRouter = express.Router();
 //GET ALL USERS (GET) 
