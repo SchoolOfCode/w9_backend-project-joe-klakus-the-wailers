@@ -3,6 +3,8 @@ import app from '../app.js'
 import { test, expect } from "@jest/globals"; 
 import { pool } from "../db/index.js"
 
+// beforeAll (() => {dropEventsTable})
+
 afterAll(() => { pool.end() });
 
 describe("Test the GET route for users", ()=>{
