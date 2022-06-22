@@ -32,7 +32,6 @@ export const createUser = async(newUser) =>{
 // UPDATE A USER BY ID
 export const  updateUser = async (updatedUser, id) => {
     const { first_name, last_name, email, password, house_number, street_address, town, region, postcode } = updatedUser;
-    const hash = await bcrypt.hash(password,10);
     const userUpdate = await query(`SELECT * FROM users WHERE user_id = ${id}`)
     if (first_name) {
         await query (`UPDATE users SET first_name = $1 WHERE user_id = ${id};`,
@@ -50,6 +49,7 @@ export const  updateUser = async (updatedUser, id) => {
     }
     }
     if (password) {
+        const hash = await bcrypt.hash(password,10);
         await query (`UPDATE users SET password = $1 WHERE user_id = ${id};`,
         [hash] )
     }
