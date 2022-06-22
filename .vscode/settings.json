@@ -1,4 +1,6 @@
-{
+{"workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#756b0a" // Change this color!
+  },
     "cSpell.words": [
         "Brum",
         "PGDATABASE",
@@ -6,5 +8,7 @@
         "PGPASSWORD",
         "PGPORT",
         "PGUSER"
-    ]
+    ],
+
+    
 }
