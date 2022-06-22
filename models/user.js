@@ -43,8 +43,11 @@ export const  updateUser = async (updatedUser, id) => {
         [last_name] )
     }
     if (email) {
+        const emailCheck = await query(`SELECT * FROM users WHERE email = $1`,[email]) //Checks for duplicate email needs testing
+        if (emailCheck.rows.length === 0){
         await query (`UPDATE users SET email = $1 WHERE user_id = ${id};`,
         [email] )
+    }
     }
     if (password) {
         await query (`UPDATE users SET password = $1 WHERE user_id = ${id};`,

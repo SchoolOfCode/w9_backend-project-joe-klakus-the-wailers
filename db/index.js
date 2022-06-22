@@ -1,6 +1,6 @@
 import pg from "pg";
 
-const pool = new pg.Pool({  //deleted the export not sure if needed
+export const pool = new pg.Pool({  //deleted the export not sure if needed
     user: process.env.PGUSER,
     host:process.env.PGHOST,
     database:process.env.PGDATABASE,

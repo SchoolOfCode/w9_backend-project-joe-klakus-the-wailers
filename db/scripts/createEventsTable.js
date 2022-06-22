@@ -18,7 +18,7 @@ const sqlString = `CREATE TABLE IF NOT EXISTS events(
     userAttending INT NOT NULL REFERENCES users (user_id)
     );`;
 
-async function createEventsTable(){
+export async function createEventsTable(){
     const res = await query(sqlString)
     console.log(res.command)
 }

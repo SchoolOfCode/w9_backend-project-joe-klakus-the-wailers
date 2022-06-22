@@ -47,7 +47,11 @@ Create Models - functions
 
 Added bcrypt to hash the passwords✅
 
-Take the verify function out from the app.js and import where needed
+Need to verify that patch cannot change email to an existing one. //half done not tested
+Need to return something if email is already in use.
+need to setup request codes e.g 201
+set up scripts to auto drop, create, populate tables when tests are run. then fixed tests.git
+Take the verify function out from the app.js and import where needed.
 
 
 

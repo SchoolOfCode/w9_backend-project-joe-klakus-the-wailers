@@ -11,7 +11,9 @@ usersRouter.get("/users", async(req, res)=>{
 usersRouter.post("/users", async(req, res)=>{
     const newUser = req.body 
     const result = await createUser(newUser);
+    if(result){
     res.json({Success : true , Payload: result})
+    } else res.json({Success : false})
 })
 
 //UPDATE USER DETAILS (PATCH) 

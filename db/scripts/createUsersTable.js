@@ -13,7 +13,7 @@ const sqlString = `CREATE TABLE IF NOT EXISTS users(
     postcode VARCHAR
     );`;
 
-async function createUsersTable(){
+export async function createUsersTable(){
     const res = await query(sqlString)
     console.log(res.command)
 }

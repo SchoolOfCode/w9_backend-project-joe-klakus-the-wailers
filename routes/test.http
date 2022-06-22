@@ -58,7 +58,7 @@ content-type: application/json
     {
       "first_name": "New Person",
       "last_name": "Green",
-      "email": "m535g@hotmail.com",
+      "email": "gtfgffg@hotmail.com",
       "password": "password",
       "house_number": "birmingham",
       "street_address": "birmingham",
@@ -73,7 +73,7 @@ content-type: application/json
     {
       "first_name": "Test",
       "last_name": "Green",
-      "email": "mg@hotmail.com",
+      "email": "gtfgffg@hotmail.com",
       "password": "password",
       "house_number": "birmingham",
       "street_address": "test",
