@@ -2,9 +2,14 @@ import express from 'express'
 import jwt from 'jsonwebtoken'
 import usersRouter from './routes/user.js';
 import eventsRouter from './routes/events.js';
+import authRouter from './routes/auth.js'
+import cookieParser from 'cookie-parser'
+
 const app = express();
 //Middleware that parses the data
 app.use(express.json())
+app.use(cookieParser());
+
 //Sets the port
 const PORT = process.env.port || 5000;
 
@@ -14,6 +19,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.header('Access-Control-Allow-Credentials', true)
   next();
 });
 
@@ -29,25 +35,9 @@ const users = [
 //Router middleware
 app.use("/", usersRouter);
 app.use("/", eventsRouter);
+app.use("/", authRouter)
 
-//Route to Login
-app.post('/login', (req, res)=>{
-    const {username, password} = req.body;
-    const user = users.find((u) => {
-       return u.username === username && u.password == password
-    })
-    if(user){
-      //Generate access token
-      const accessToken = jwt.sign({id:user.id}, 'thisisasecret')
-      res.json({
-        username:user.username,
-        accessToken,
-      })
-    } else{
-        res.status(400).json("username or password incorrect")
-    }  
-});
-//Verify function used as middleware on protected routes
+
 const verify = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {

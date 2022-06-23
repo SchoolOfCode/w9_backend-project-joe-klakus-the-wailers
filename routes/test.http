@@ -56,10 +56,10 @@ POST http://localhost:5000/users/
 content-type: application/json
 
     {
-      "first_name": "New Person",
+      "first_name": "admin",
       "last_name": "Green",
-      "email": "gtfgffg@hotmail.com",
-      "password": "password",
+      "email": "admin@hotmail.com",
+      "password": "admin",
       "house_number": "birmingham",
       "street_address": "birmingham",
       "town": "birmingham",

@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "jest": {
     "verbose": true,
-    "setupFiles":["./db/scripts/dropEventsTable.js","./db/scripts/dropUsersTable.js"]
+    "setupFiles": [
+      "./db/scripts/dropEventsTable.js",
+      "./db/scripts/dropUsersTable.js"
+    ]
   },
   "description": "For your project, you’ll be using what you’ve learned on the course so far to try and improve the lives of your users. In this case, the users will be close to home: bootcampers!",
   "main": "index.js",
@@ -31,6 +34,7 @@
   "homepage": "https://github.com/SchoolOfCode/w9_backend-project-joe-klakus-the-wailers#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jest": "^28.1.1",
