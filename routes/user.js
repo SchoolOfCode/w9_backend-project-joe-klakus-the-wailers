@@ -1,4 +1,5 @@
 import express from "express";
+import {body, validationResult} from "express-validator";
 import { getUsers, createUser, deleteUser, updateUser } from "../models/user.js";
 
 const usersRouter = express.Router();
@@ -8,13 +9,23 @@ usersRouter.get("/users", async(req, res)=>{
     res.json({Success : true , Payload: result})
 })
 //CREATE A NEW USER (POST)
-usersRouter.post("/users", async(req, res)=>{
+usersRouter.post("/users", 
+    body('password').isLength({ min: 5 })
+    .withMessage('must be at least 5 chars long')
+    .matches(/\d/)
+    .withMessage('must contain a number'),
+    body('email').isEmail()
+    .withMessage('must be an email address'),      
+    async(req, res)=>{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+}
     const newUser = req.body 
     const result = await createUser(newUser);
-    if(result){
     res.json({Success : true , Payload: result})
-    } else res.json({Success : false})
-})
+}
+)
 
 //UPDATE USER DETAILS (PATCH) 
 usersRouter.patch("/users/:id", async(req, res)=>{

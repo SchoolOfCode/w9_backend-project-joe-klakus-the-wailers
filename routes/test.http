@@ -4,7 +4,7 @@ GET http://localhost:5000/events/
 ###
 GET http://localhost:5000/events/2
 ###
-DELETE http://localhost:5000/events/2
+DELETE http://localhost:5000/events/27
 
 ###
 POST http://localhost:5000/events/
@@ -27,7 +27,7 @@ content-type: application/json
       "userAttending": 1
     }
 ###
-Patch http://localhost:5000/events/2
+Patch http://localhost:5000/events/
 content-type: application/json
 
     {
@@ -81,3 +81,6 @@ content-type: application/json
       "region": "birmingham",
       "postcode": "birmingham"
     }
+
+###
+DELETE http://localhost:5000/users/15

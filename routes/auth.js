@@ -15,8 +15,6 @@ authRouter.post('/login', async (req, res)=>{
       //Password Check
       console.log(user.rows)
       const validPassword = await bcrypt.compare(password, user.rows[0].password);
-      console.log(password)
-      console.log(validPassword)
       if(!validPassword) return res.status(401).json({error: "Incorrect password"});
        //jwt
       let tokens = jwtTokens(user.rows[0]);
