@@ -13,8 +13,6 @@ app.use(cookieParser());
 //Sets the port
 const PORT = process.env.port || 5000;
 
-app.use(express.static('public'))
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -42,8 +40,8 @@ const verify = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(" ")[1]
-
-    jwt.verify(token, "thisisasecret",(err, user)=>{
+        console.log(token)
+    jwt.verify(token,process.env.ACCESS_SECRET,(err, user)=>{
         if(err){
             return res.status(403).json("Token is not valid")
         }

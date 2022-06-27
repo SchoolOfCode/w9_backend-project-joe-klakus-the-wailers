@@ -18,15 +18,16 @@ export const createUser = async(newUser) =>{
     //destructured
     const {first_name , last_name, email , password , house_number, street_address, town, region, postcode } = newUser;
     const emailCheck = await query(`SELECT * FROM users WHERE email = $1`,[email])
-    if (emailCheck.rows.length === 0){
-    const hash = await bcrypt.hash(password,10);
+    if (emailCheck.rows.length === 0) {
+    if (password) {const hash = await bcrypt.hash(password,10)
     const data  = await query(`INSERT INTO users (first_name, last_name , email , password , house_number, street_address, town, region, postcode ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
     RETURNING *;`,[first_name, last_name, email, hash, house_number, street_address, town, region, postcode]);
     //console.log(data.rows);
     return data.rows;
     }else{
-        console.log("Email Exists")//To Do!! 
-    }
+        console.log("Email Exists")}//To Do!! 
+    } else{
+        console.log("Password is blank")}//To Do!! 
 }
 //Update user details (PATCH)
 // UPDATE A USER BY ID
