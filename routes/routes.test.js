@@ -24,6 +24,7 @@ describe("Test the GET route for users", ()=>{
             town: "birmingham",
             region: "birmingham",
             postcode: "birmingham"
+            
           }
         
         const response = await request(app).post("/users/").send(data)

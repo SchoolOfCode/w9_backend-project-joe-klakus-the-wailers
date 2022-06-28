@@ -10,7 +10,7 @@ const sqlString = `CREATE TABLE IF NOT EXISTS users(
     street_address VARCHAR, 
     town VARCHAR, 
     region VARCHAR, 
-    postcode VARCHAR
+    postcode VARCHA
     );`;
 
 export async function createUsersTable(){
