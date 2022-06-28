@@ -1,9 +1,11 @@
 import { query } from "../index.js"
 
 const sqlString = `CREATE TABLE IF NOT EXISTS events(
+    img_url VARCHAR,
     events_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
     name_of_event VARCHAR, 
     event_host INT NOT NULL REFERENCES users (user_id), 
+    name_of_event_host VARCHAR,
     start_time TIMESTAMP, 
     end_time TIMESTAMP,
     description VARCHAR,
