@@ -18,7 +18,7 @@ describe("Test the GET route for users", ()=>{
             first_name: "Buddy",
             last_name: "Green",
             email: "gtfgffg@hotmail.com",
-            password: "password",
+            password: "password1",
             house_number: "birmingham",
             street_address: "birmingham",
             town: "birmingham",
