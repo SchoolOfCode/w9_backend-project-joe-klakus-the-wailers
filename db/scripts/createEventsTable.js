@@ -1,4 +1,4 @@
-import { query } from "../index.js"
+import { query } from "../index.js";
 
 const sqlString = `CREATE TABLE IF NOT EXISTS events(
     img_url VARCHAR,
@@ -20,8 +20,8 @@ const sqlString = `CREATE TABLE IF NOT EXISTS events(
     userAttending INT NOT NULL REFERENCES users (user_id)
     );`;
 
-export async function createEventsTable(){
-    const res = await query(sqlString)
-    console.log(res.command)
+export async function createEventsTable() {
+  const res = await query(sqlString);
+  console.log(res.command);
 }
-createEventsTable()
+createEventsTable();

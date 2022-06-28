@@ -10,4 +10,4 @@ export async function populateEvents() {
         console.log(res.rows[0])
     }
 
-populateEvents()
+populateEvents();
