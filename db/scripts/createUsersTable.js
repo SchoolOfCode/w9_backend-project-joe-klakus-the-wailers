@@ -1,4 +1,4 @@
-import { query } from "../index.js"
+import { query } from "../index.js";
 
 const sqlString = `CREATE TABLE IF NOT EXISTS users(
     user_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
@@ -13,8 +13,8 @@ const sqlString = `CREATE TABLE IF NOT EXISTS users(
     postcode VARCHAR
     );`;
 
-export async function createUsersTable(){
-    const res = await query(sqlString)
-    console.log(res.command)
+export async function createUsersTable() {
+  const res = await query(sqlString);
+  console.log(res.command);
 }
-createUsersTable()
+createUsersTable();
