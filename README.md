@@ -51,24 +51,58 @@ To run tests, run the following command
 - [@danielknight261](https://github.com/danielknight261)
 
 
-## Api reference routes
+## API Reference
 
-USERS - user.js 
-GET ALL USERS - /users
-CREATE A NEW USER - /users
-UPDATE USER DETAILS (PATCH) - /users/:id
-DELETE A USER (DELETE) - /users/:id
+#### Users Routes
 
-EVENTS - events.js
-GET ALL EVENTS - /events
-CREATE A NEW EVENT - /events
-UPDATE EVENT DETAILS (PATCH) - /events/:id
-DELETE A EVENT (DELETE) - /events/:id
+#### GET ALL USERS
 
-AUTHENTICATION - Auth.js
-LOGIN - /login
-GET A REFRESH TOKEN - /refresh_token
-DELETE LOGOUT - /refresh_token
+```http
+  GET localhost:3000/users
+```
+
+| Route     | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `/users` | `GET` | GETs all the users in the database |
+
+#### POST 
+
+```http
+  POST localhost:3000/users
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `/users`      | `POST` | Creates a new user |
+
+#### PATCH 
+
+```http
+  PATCH localhost:3000/users/:id
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `/users/:id`      | `PATCH` | Updates a user with the designated id |
+
+#### DELETE
+
+```http
+  DELETE localhost:3000/users/:id
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `/users/:id`      | `DELETE` | Delete the user with the designated id |
+
+
+#### Events Routes
+```http
+ For events paths use the above references but with /events instead of /users.
+```
+
+
+
 
 
 
