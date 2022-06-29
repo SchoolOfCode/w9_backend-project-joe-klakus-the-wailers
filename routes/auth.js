@@ -25,7 +25,7 @@ authRouter.post("/login", async (req, res) => {
     res.cookie("refresh_token", tokens.refreshToken, { httpOnly: true });
     res.json(tokens);
   } catch (error) {
-    res.status(401).json({ error: error.message });
+    // res.status(401).json({ error: error.message });
   }
 });
 

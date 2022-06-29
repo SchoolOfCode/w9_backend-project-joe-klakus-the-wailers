@@ -51,9 +51,40 @@ To run tests, run the following command
 - [@danielknight261](https://github.com/danielknight261)
 
 
-## API Reference
+## Authentication
 
-#### Users Routes
+The authentication is provided using JSON Web Tokens the expiry times for the tokens can be changed in the utils/jwt.helpers.js file. When logged in the user receives a short lived access token that is exchanged with a refresh token automatically that keeps the user logged in. The access token is decryptable to allow access to the users email and user_id.
+
+## API Reference
+#### Auth Routes
+```http
+  POST localhost:3000/login
+```
+
+| Route     | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `/login` | `POST` | POSTs the username and password to the database and receieves an access token if correct. |
+
+#### GET 
+
+```http
+  POST localhost:3000/refresh_token
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `/refresh_token`      | `GET` | GETs the receieves a refresh token if correct. |
+
+#### DELETE 
+
+```http
+  POST localhost:3000/refresh_token
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `/refresh_token`      | `DELETE` | DELETEs the refresh token from the database (logs the user out)|
+
 
 #### GET ALL USERS
 
