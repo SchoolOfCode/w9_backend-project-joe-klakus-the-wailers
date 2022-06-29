@@ -50,3 +50,25 @@ To run tests, run the following command
 - [@Musy88](https://github.com/Musy88)
 - [@danielknight261](https://github.com/danielknight261)
 
+
+## Api reference routes
+
+USERS - user.js 
+GET ALL USERS - /users
+CREATE A NEW USER - /users
+UPDATE USER DETAILS (PATCH) - /users/:id
+DELETE A USER (DELETE) - /users/:id
+
+EVENTS - events.js
+GET ALL EVENTS - /events
+CREATE A NEW EVENT - /events
+UPDATE EVENT DETAILS (PATCH) - /events/:id
+DELETE A EVENT (DELETE) - /events/:id
+
+AUTHENTICATION - Auth.js
+LOGIN - /login
+GET A REFRESH TOKEN - /refresh_token
+DELETE LOGOUT - /refresh_token
+
+
+
