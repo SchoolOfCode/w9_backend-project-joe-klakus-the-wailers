@@ -3,7 +3,8 @@
 
 This is the Backend of our Mid-way project for School Of Code, we were presented with the task of creating an app that would help a bootcamper through this experience. After some discussion we decided to create an APP centered around meeting other bootcampers outside of Bootcamp Hours.
 
-As of 28/6/2022 the app is not deployed and so you will have to run it locally to view.
+App is deployed [here](https://front-end-bootcamper-social.netlify.app/)
+
 ## To Run Locally:
 
 Clone the project
